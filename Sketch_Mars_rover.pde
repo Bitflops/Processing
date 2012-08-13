@@ -48,6 +48,9 @@ float xObjD = R*cos(radians(degLatD))*cos(radians(degLongD));
 float yObjD = R*cos(radians(degLatD))*sin(radians(degLongD));
 float zObjD = R*sin(radians(-degLatD));
 
+String filename = "texture1.jpg";
+int i = 0;
+
 
 // Texture
 PImage texmap;
@@ -64,11 +67,13 @@ void setup(){
   textFont(font);
   textMode(SCREEN);
   
-  texmap = loadImage("marsGeo.jpg");
-  
+  texmap = loadImage(filename);
+ 
   setupSphere(R, xDetail, yDetail);
+
 }
 ////////////////////////////////////////////////////////////////////////
+
 void draw(){
   
   background(0);
@@ -101,6 +106,10 @@ fill(100,255,50);
 text("Sojourner",10,700-10);
 text("Lat:"+degLatD+char(176)+" Long:"+degLongD+char(176),100,700-10);
 fill(255,255,255);
+
+//Texture choice
+text("Change texture with keys 1 to 4",10,20);
+
 
 
 //text("xCoord: "+xObj,10,700-50);
@@ -179,6 +188,17 @@ void drawSphere(PImage Map){
   fill(100,255,50);    // Position of object on surface
   translate(-xObjD,-yObjD,zObjD);
   sphere(2);
+}
   
+void keyPressed(){
+  if (keyCode >= 53){ 
+  return;
+  }
+  StringBuilder keyNbr = new StringBuilder();
+  keyNbr.append("texture");
+  keyNbr.append(char(keyCode));   
+  keyNbr.append(".jpg");
+  filename = keyNbr.toString();
+  texmap = loadImage(filename);  
 }
  
