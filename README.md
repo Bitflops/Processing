@@ -15,7 +15,7 @@ Credits:
 
 The code is based on the textured sphere example from the processing forum. Barely display information and texture selection functions have been added.
 
-Images come from Nasa's MRO and the JPL.
+Images come from Nasa's MGS,MRO and the JPL.
 
 
 
