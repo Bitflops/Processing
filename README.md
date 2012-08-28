@@ -15,6 +15,6 @@ Credits:
 
 The code is based on the <a href=http://processing.org/learning/library/texturedsphere.html>textured sphere example </a>  from the processing forum. Barely display information and texture selection functions have been added.
 
-Images come from Nasa's MGS,MRO and the JPL.
+Images are provided by Nasa's MGS,MRO and the JPL.
 
 
