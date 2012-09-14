@@ -96,13 +96,13 @@ void draw(){
 fill(255,255,255);
 text("Curiosity",10,700-70);
 text("Lat:"+degLat+char(176)+" Long:"+degLong+char(176),100,700-70);
-fill(255,0,0);
+fill(238,44,44);
 text("Opportunity",10,700-50);
 text("Lat:"+degLatB+char(176)+" Long:"+degLongB+char(176),100,700-50);
-fill(0,125,255);
+fill(0,178,238);
 text("Spirit",10,700-30);
 text("Lat:"+degLatC+char(176)+" Long:"+degLongC+char(176),100,700-30);
-fill(100,255,50);
+fill(60,179,113);
 text("Sojourner",10,700-10);
 text("Lat:"+degLatD+char(176)+" Long:"+degLongD+char(176),100,700-10);
 fill(255,255,255);
@@ -177,15 +177,15 @@ void drawSphere(PImage Map){
   translate(-xObj,-yObj,zObj);
   sphere(2); 
   translate(xObj,yObj,-zObj);
-  fill(250,0,0);    // Position of object on surface
+  fill(238,44,44);    // Position of object on surface
   translate(-xObjB,-yObjB,zObjB);
   sphere(2); 
   translate(xObjB,yObjB,-zObjB);
-  fill(0,0,250);    // Position of object on surface
+  fill(0,178,238);    // Position of object on surface
   translate(-xObjC,-yObjC,zObjC);
   sphere(2); 
   translate(xObjC,yObjC,-zObjC);
-  fill(100,255,50);    // Position of object on surface
+  fill(60,179,113);    // Position of object on surface
   translate(-xObjD,-yObjD,zObjD);
   sphere(2);
 }
