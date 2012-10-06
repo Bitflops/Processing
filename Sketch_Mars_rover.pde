@@ -17,7 +17,7 @@ float velocityY = 0;
 
 // Object Varialbles
 //Curiosity
-float degLat = -5.4;  // in degrees -5.4
+float degLat = -5.4; // in degrees -5.4
 float degLong = 137.8; // in degrees 137.8
 
 float xObj = R*cos(radians(degLat))*cos(radians(degLong));
@@ -25,7 +25,7 @@ float yObj = R*cos(radians(degLat))*sin(radians(degLong));
 float zObj = R*sin(radians(-degLat));
 
 //Opportunity
-float degLatB = -2.172;  // in degrees 1.95 South
+float degLatB = -2.172; // in degrees 1.95 South
 float degLongB = 54.445; // in degrees 354.47 East
 
 float xObjB = R*cos(radians(degLatB))*cos(radians(degLongB));
@@ -33,7 +33,7 @@ float yObjB = R*cos(radians(degLatB))*sin(radians(degLongB));
 float zObjB = R*sin(radians(-degLatB));
 
 //Spirit
-float degLatC = -14.6;  // in degrees 14.6 South
+float degLatC = -14.6; // in degrees 14.6 South
 float degLongC = 175.4; // in degrees 175.4 East
 
 float xObjC = R*cos(radians(degLatC))*cos(radians(degLongC));
@@ -41,7 +41,7 @@ float yObjC = R*cos(radians(degLatC))*sin(radians(degLongC));
 float zObjC = R*sin(radians(-degLatC));
 
 //Sojourner
-float degLatD = 19.13;  // in degrees 19.30 North
+float degLatD = 19.13; // in degrees 19.30 North
 float degLongD = -33.22; // in degrees 33.52 West
 
 float xObjD = R*cos(radians(degLatD))*cos(radians(degLongD));
@@ -79,12 +79,12 @@ void draw(){
   background(0);
   lights();
   translate(width/2.0, height/2.0, camDistance);
-  rotateX( radians(-rotationX) );  
+  rotateX( radians(-rotationX) );
   rotateZ( radians(270 - rotationY) );
 
   drawSphere(texmap);
 
-  // Implements mouse control (interaction will be inverse when sphere is  upside down)
+  // Implements mouse control (interaction will be inverse when sphere is upside down)
   rotationX += velocityX;
   rotationY += velocityY;
   velocityX *= 0.95;
@@ -108,8 +108,9 @@ text("Lat:"+degLatD+char(176)+" Long:"+degLongD+char(176),100,700-10);
 fill(255,255,255);
 
 //Texture choice
-text("Change texture with keys 1 to 4",10,20);
-
+textAlign(RIGHT);
+text("Change texture with keys 1 to 4",700-10,700-10);
+textAlign(LEFT);
 
 
 //text("xCoord: "+xObj,10,700-50);
@@ -125,7 +126,7 @@ void setupSphere(float R, int xDetail, int yDetail){
   // Create a 2D grid of standardized mercator coordinates
   for(int i = 0; i <= xDetail; i++){
     xGrid[i]= i / (float) xDetail;
-  } 
+  }
   for(int i = 0; i <= yDetail; i++){
     yGrid[i]= i / (float) yDetail;
   }
@@ -161,44 +162,44 @@ void drawSphere(PImage Map){
     beginShape(TRIANGLE_STRIP);
     texture(Map);
     for(int i = 0; i <= xDetail; i++){
-      vertex(allPoints[i][j+1][0],   allPoints[i][j+1][1],   allPoints[i][j+1][2],   xGrid[i],   yGrid[j+1]);
-      vertex(allPoints[i][j][0],     allPoints[i][j][1],     allPoints[i][j][2],     xGrid[i],   yGrid[j]);
+      vertex(allPoints[i][j+1][0], allPoints[i][j+1][1], allPoints[i][j+1][2], xGrid[i], yGrid[j+1]);
+      vertex(allPoints[i][j][0], allPoints[i][j][1], allPoints[i][j][2], xGrid[i], yGrid[j]);
     }
     endShape(CLOSE);
   }
  
-  stroke(0,0,0);        // Reference Equator Ellipse
+  stroke(0,0,0); // Reference Equator Ellipse
   noFill();
   rectMode(CENTER);
   ellipse(0,0,500,500);
   noStroke();
   
-  fill(250,250,250);    // Position of object on surface
+  fill(250,250,250); // Position of object on surface
   translate(-xObj,-yObj,zObj);
-  sphere(2); 
+  sphere(2);
   translate(xObj,yObj,-zObj);
-  fill(238,44,44);    // Position of object on surface
+  fill(238,44,44); // Position of object on surface
   translate(-xObjB,-yObjB,zObjB);
-  sphere(2); 
+  sphere(2);
   translate(xObjB,yObjB,-zObjB);
-  fill(0,178,238);    // Position of object on surface
+  fill(0,178,238); // Position of object on surface
   translate(-xObjC,-yObjC,zObjC);
-  sphere(2); 
+  sphere(2);
   translate(xObjC,yObjC,-zObjC);
-  fill(60,179,113);    // Position of object on surface
+  fill(60,179,113); // Position of object on surface
   translate(-xObjD,-yObjD,zObjD);
   sphere(2);
 }
   
 void keyPressed(){
-  if (keyCode >= 53){ 
+  if (keyCode >= 53){
   return;
   }
   StringBuilder keyNbr = new StringBuilder();
   keyNbr.append("texture");
-  keyNbr.append(char(keyCode));   
+  keyNbr.append(char(keyCode));
   keyNbr.append(".jpg");
   filename = keyNbr.toString();
-  texmap = loadImage(filename);  
+  texmap = loadImage(filename);
 }
  
